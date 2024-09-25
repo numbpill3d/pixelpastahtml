@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cursed Pixel Realm: Depths of Despair</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="glitch-overlay"></div>
+    <div class="spiral-cursor"></div>
+    <div id="infected-cursor"></div>
+    <div class="container">
+        <header>
+            <h1>Cursed Pixel Realm: Depths of Despair</h1>
+        </header>
+        <aside class="left-sidebar">
+            <h3>Cursed Inventory</h3>
+            <div id="inventory"></div>
+        </aside>
+        <main>
+            <h2>Welcome to the Nightmare</h2>
+            <p>Venture into the pixelated abyss of Japanese horror...</p>
+            <div class="old-tv">
+                <video id="static-video" loop muted>
+                    <source src="data:video/webm;base64,GkXfo0AgQoaBAUL3gQFC8oEEQvOBCEKCQAR3ZWJtQoeBAkKFgQIYU4BnQI0VSalmQCgq17FAAw9CQE2AQAZ3aGFtbXlXQUAGd2hhbW15RIlACECPQAAAAAAAFlSua0AxrkAu14EBY8WBAZyBACK1nEADdW5khkAFVl9WUDglhohAA1ZQOIOBAeBABrCBCLqBCB9DtnVAIueBAKNAHIEAAIAwAQCdASoIAAgAAUAmJaQAA3AA/vz0AAA=" type="video/webm">
+                </video>
+            </div>
+            <div class="blog-post">
+                <h3 class="corrupted-text">The Whispering Shadows</h3>
+                <p>Last night, I heard them again. The walls seem to breathe, and the darkness... it watches.</p>
+                <img src="/api/placeholder/300/200" alt="Distorted Image" class="distorted-image">
+            </div>
+            <div class="blog-post">
+                <h3 class="flickering-text">Echoes of the Forgotten</h3>
+                <p>I found an old game cartridge in the attic. When I plugged it in, the characters looked... familiar.</p>
+            </div>
+            <div class="ascii-art" id="ascii-face"></div>
+        </main>
+        <aside class="right-sidebar">
+            <h3>Spirit Meter</h3>
+            <div id="spirit-meter">
+                <div id="spirit-level"></div>
+            </div>
+            <h3>Moon Phase</h3>
+            <div id="moon-phase"></div>
+        </aside>
+        <footer>
+            <p>© 2024 Cursed Pixel Realm - Enter at your own risk</p>
+        </footer>
+    </div>
+    <div class="pixel-spirit"></div>
+    <div class="creepy-message" id="creepy-message"></div>
+
+    <svg width="0" height="0">
+        <filter id="distortion-filter">
+            <feTurbulence type="turbulence" baseFrequency="0.01 0.01" numOctaves="2" seed="2" stitchTiles="stitch" result="turbulence"/>
+            <feDisplacementMap in2="turbulence" in="SourceGraphic" scale="10" xChannelSelector="R" yChannelSelector="G"/>
+        </filter>
+    </svg>
+
+    <script src="script.js"></script>
+</body>
+</html>
