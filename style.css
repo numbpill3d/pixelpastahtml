@@ -1,0 +1,282 @@
+@import url('https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap');
+
+@font-face {
+    font-family: 'Pixelated';
+    src: url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+}
+
+:root {
+    --main-bg: #0a0505;
+    --text-color: #8a7676;
+    --accent: #610000;
+    --highlight: #2a0505;
+    --neon: #00ff00;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Pixelated', monospace;
+    background-color: var(--main-bg);
+    color: var(--text-color);
+    overflow-x: hidden;
+    cursor: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAzklEQVRYR+2X0Q6AIAhF5f8/2ouLmCjcBVtmL3EPpR4Q6BhjjHX7U0rZ9jnn7fABjDFC2rOzvq9nWWsFYHXgnBOAMUbM8u7Bey8Aa+2nPcuJix9mANZawwDSegQAkoBaKwDDHHWglCJFiQDMKgOAmKMOSClBAEAOOAOQA2YdOgOQA8YTPZ5B5o0lvAB478+/vGad0pONYWvuulLLKowaGrJ/VRpKKcwb3oByDQAA//+yBbwqeQeeaO6AALoZ+F8HcJOtQgF0M5C6ww38APjTYJWPH9rnAAAAAElFTkSuQmCC'), auto;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 200px 1fr 200px;
+    grid-template-areas: 
+        "header header header"
+        "left-sidebar main right-sidebar"
+        "footer footer footer";
+    gap: 10px;
+    padding: 20px;
+}
+
+header {
+    grid-area: header;
+    text-align: center;
+    font-size: 2em;
+    padding: 20px;
+    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAEklEQVQImWNgYGD4z0AswK4SAFXuAf8EPy+xAAAAAElFTkSuQmCC') repeat;
+    border: 4px solid var(--accent);
+    animation: glitch 5s infinite;
+    font-family: 'UnifrakturMaguntia', cursive;
+    text-shadow: 2px 2px var(--accent);
+}
+
+.left-sidebar, .right-sidebar {
+    background-color: var(--highlight);
+    padding: 10px;
+    border: 2px solid var(--accent);
+}
+
+.left-sidebar { grid-area: left-sidebar; }
+.right-sidebar { grid-area: right-sidebar; }
+
+main {
+    grid-area: main;
+    background-color: rgba(10, 5, 5, 0.9);
+    padding: 20px;
+    border: 2px solid var(--accent);
+    position: relative;
+    overflow: hidden;
+}
+
+main::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.15),
+        rgba(0, 0, 0, 0.15) 1px,
+        transparent 1px,
+        transparent 2px
+    );
+    pointer-events: none;
+}
+
+footer {
+    grid-area: footer;
+    text-align: center;
+    padding: 10px;
+    background-color: var(--highlight);
+    border-top: 2px solid var(--accent);
+}
+
+.pixel-spirit {
+    width: 32px;
+    height: 32px;
+    background-image: url('/api/placeholder/32/32');
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    animation: float 3s infinite alternate;
+}
+
+@keyframes glitch {
+    0% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(-2px, -2px); }
+    60% { transform: translate(2px, 2px); }
+    80% { transform: translate(2px, -2px); }
+    100% { transform: translate(0); }
+}
+
+@keyframes float {
+    from { transform: translateY(0); }
+    to { transform: translateY(-10px); }
+}
+
+.cursed-item {
+    width: 32px;
+    height: 32px;
+    margin: 5px;
+    display: inline-block;
+    background-size: contain;
+    cursor: pointer;
+    background-image: url('/api/placeholder/32/32');
+}
+
+#spirit-meter {
+    width: 100%;
+    height: 20px;
+    background-color: var(--highlight);
+    margin-top: 10px;
+    border: 1px solid var(--neon);
+    box-shadow: 0 0 5px var(--neon);
+}
+
+#spirit-level {
+    height: 100%;
+    background-color: var(--neon);
+    width: 50%;
+    transition: width 0.5s;
+}
+
+.glitch-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(97, 0, 0, 0.1);
+    pointer-events: none;
+    opacity: 0;
+    z-index: 9999;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 0.7; }
+    50% { transform: scale(1.05); opacity: 1; }
+    100% { transform: scale(1); opacity: 0.7; }
+}
+
+h1, h2, h3 {
+    animation: pulse 4s infinite;
+    color: var(--neon);
+    font-family: 'UnifrakturMaguntia', cursive;
+}
+
+.blog-post {
+    background: linear-gradient(45deg, var(--highlight), var(--main-bg));
+    padding: 20px;
+    margin: 20px 0;
+    border: 2px dashed var(--accent);
+    position: relative;
+    overflow: hidden;
+}
+
+.blog-post::before {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-image: url('/api/placeholder/100/100');
+    opacity: 0.1;
+    top: -20px;
+    right: -20px;
+    transform: rotate(45deg);
+}
+
+.spiral-cursor {
+    position: fixed;
+    pointer-events: none;
+    width: 50px;
+    height: 50px;
+    background: url('/api/placeholder/50/50') no-repeat center center;
+    background-size: contain;
+    animation: spiral-rotate 3s linear infinite;
+    opacity: 0.3;
+    z-index: 9999;
+}
+
+@keyframes spiral-rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.distorted-image {
+    max-width: 100%;
+    height: auto;
+    filter: url('#distortion-filter');
+}
+
+.creepy-message {
+    font-family: 'UnifrakturMaguntia', cursive;
+    color: var(--neon);
+    text-shadow: 2px 2px var(--accent);
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    transform: rotate(-5deg);
+    font-size: 1.2em;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.old-tv {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background-color: #000;
+    overflow: hidden;
+    margin: 20px 0;
+}
+
+.old-tv::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    z-index: 2;
+    background-size: 100% 2px, 3px 100%;
+    pointer-events: none;
+}
+
+#infected-cursor {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.7;
+}
+
+.ascii-art {
+    font-family: monospace;
+    white-space: pre;
+    font-size: 10px;
+    line-height: 10px;
+    color: var(--neon);
+}
+
+.corrupted-text {
+    font-family: 'Pixelated', monospace;
+    color: var(--neon);
+    text-shadow: 1px 1px var(--accent);
+}
+
+@keyframes flicker {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+.flickering-text {
+    animation: flicker 0.1s infinite;
+}
+
+.hidden-message {
+    position: absolute;
+    color: var(--accent);
+    opacity: 0.1;
+    font-size: 8px;
+    user-select: none;
+}
